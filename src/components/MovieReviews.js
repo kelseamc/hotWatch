@@ -17,7 +17,7 @@ function MovieReviews({movieId}) {
 
        <div className="reviews-container">
             <h2>Reviews</h2>
-            {reviews ? reviews.map((r) => <Review key={r.id} review={r} />) : <h2>Sorry, No One Has Reviewed This Yet</h2>}
+            {reviews ? reviews.map((r) => <Review key={r.id} review={r} />) : null}
         </div>
     )
 }

@@ -11,7 +11,6 @@ function SimilarMovies({movieId}) {
         .then((r) => r.json())
         .then((data) => {
             setSimilar(data.results)
-            console.log(data.results)
         })
     },[movieId])
 

@@ -16,7 +16,6 @@ export const MovieDetail = () =>  {
         .then((r) => r.json())
         .then((data) => {
             setMovie(data)
-            console.log(data)
         })
     }, [movieID])
 
