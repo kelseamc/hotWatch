@@ -1,38 +1,359 @@
-.App {
+body{
+  background-color: black;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+nav {
+  height: 50px;
+  background-color: black;
+  display: flex;
+}
+nav a{
+  text-decoration: none;
+}
+.movies-nav-text-mobile {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 3px;
+  margin-left: 7px;
+  width: 180px;
+}
+.movies-nav-text-mobile:hover {
+  color: #f03a17;
+}
+
+.app-title{
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 3px;
+  margin-left: 7px;
+  width: 180px;
+}
+
+.movies-nav-text, .top-movies-nav-text, .tmdb-nav-text {
+  display: none;
+}
+/************** Movie Cards  *******************/
+
+.movies-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.movie-card{
+  position: relative;
+  width: 100%;
+}
+
+.movie-card img {
+  width: 100%;
+}
+
+.over-movie-card {
+  /*this styling keeps text at the bottom of the movie thumb*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /*this styling creates the hover effect on the movie cards*/
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.74);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
+}
+
+.movie-card:hover .over-movie-card {
+  visibility: visible;
+  opacity: 1;
+}
+
+.over-movie-card h2 {
+  font-size: 30px;
+  margin-left: 50px;
+  margin-bottom: 0;
+}
+
+.over-movie-card p {
+  margin-left: 50px;
+  margin-top: 10px;
+  margin-bottom: 70px;
+}
+
+
+/***************** REVIEWS *******************/
+
+.reviews-container{
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  width: 75%;
+  height: 500px;
+  color:aliceblue;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.review{
+  text-align: center;
+  border-bottom: 1px solid white;
+  padding-left: 10px;
+  margin-right: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/***************** Similar *******************/
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.similar-container{
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  width: 25%;
+  height: 500px;
+  color:aliceblue;
+  text-align: center;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  right: 0;
+}
+
+.similar-card{
+  position: relative;
+  width: 100%;
+}
+
+.similar-card img {
+  width: 100%;
+}
+
+.similar-over-movie-card {
+  /*this styling keeps text at the bottom of the movie thumb*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /*this styling creates the hover effect on the movie cards*/
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.74);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
+}
+
+.similar-card:hover .similar-over-movie-card {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+/***************** ASYNC *******************/
+
+
+.loading {
+  text-align: center;
+  margin-top: 100px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.loading p {
+  font-size: 40px;
+}
+.not-found {
+  text-align: center;
+  margin-top: 100px;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.not-found h1 {
+  font-size: 40px;
 }
+
+.not-found a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.not-found span {
+  font-size: 30px;
+  margin: 10px;
+}
+
+.not-found a:hover {
+  color: #f03a17;
+}
+
+/***************** MOVIE DETAILS *******************/
+.movie-details-page {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.movie-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.movie-details-container img {
+  width: 60%;
+  border: 4px solid white;
+}
+.movie-details-page a {
+  text-decoration: none;
+}
+
+.back-movies-text {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.bottom-details{
+  display: flex;
+}
+
+/*creates a background behind the details text so it's more readable*/
+.movie-details-text {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  width: 50%;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.movie-details-container h2 {
+  font-size: 30px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.movie-rating-text {
+  color: #f03a17;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.movie-overview-text {
+  text-align: center;
+  padding: 20px;
+  margin-top: 0;
+  font-size: 17px;
+}
+
+
+/***************** MEDIA *******************/
+
+/** DESKTOP **/
+@media (min-width: 1025px) {
+.movies-container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.movie-card {
+  width: 20%;
+}
+.similar-card {
+  width: 75%;
+}
+
+.over-movie-card h2 {
+  font-size: 30px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 0;
+}
+
+
+.over-movie-card p {
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+
+.movie-details-container {
+  margin-top: 250px;
+  margin-left: 120px;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.movie-details-container img {
+  width: 20%;
+  min-width: 350px;
+  border: 5px solid white;
+}
+
+.movie-details-text {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-left: 30px;
+}
+
+.movie-details-text h2, .movie-rating-text, .movie-overview-text {
+  text-align: left;
+}
+
+.movie-overview-text {
+  padding: 15px 0;
+}
+
+.back-movies-text {
+  font-size: 25px;
+  margin-top: 5px;
+}
+.first-a {
+  display: none;
+}
+.movies-nav-text-mobile {
+  display: none;
+}
+nav {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.movies-nav-text, .top-movies-nav-text, .tmdb-nav-text {
+  display: block;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 10px;
+}
+
+.app-title{
+  display: block;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 10px;
+}
+
+.movies-nav-text:hover, .top-movies-nav-text:hover, .tmdb-nav-text:hover {
+  color: #f03a17;
+}
+}
+
